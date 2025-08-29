@@ -105,7 +105,10 @@ async def get_logs_file(request, key):
     log_entry = LogEntry(app, document)
 
     return log_entry.render_html()
-
+    
+@app.get("/ping")
+async def ping(request):
+    return response.json({"status": "ok"})
 
 if __name__ == "__main__":
     app.run(
